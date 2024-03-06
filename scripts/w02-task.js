@@ -37,28 +37,34 @@ imageElement.setAttribute('alt', `Profile image of ${profilePicture}`);
 
 /* Step 5 - Array */
 
+
 // Declare an array variable to hold favorite foods
 const favoriteFoods = ["Pizza", "iceCream", "Chocolate", "FriedPotatoes"];
 
+// Display favorite foods array in the HTML element with the id of "food"
 foodElement.innerHTML = favoriteFoods.join(", ");
 
+// Declare and instantiate a variable to hold another single favorite food item
 const newFavoriteFood = "Burgers";
 
+// Add the new favorite food item to the favoriteFoods array
 favoriteFoods.push(newFavoriteFood);
 
-foodElement.innerHTML = favoriteFoods.join(", ");
-
+// Update the content of the foodElement to include the new favorite food item
 foodElement.innerHTML += `<br>${newFavoriteFood}`;
 
+// Remove the first element in the favorite food array
 favoriteFoods.shift();
 
-favoriteFoods.push(newFavoriteFood);
+// Append the new array values onto the displayed content with a line break
+foodElement.innerHTML += `<br>${favoriteFoods.join(", ")}`;
 
-foodElement.innerHTML += `<br>${newFavoriteFood}`;
-
+// Remove the last element in the favorite food array
 favoriteFoods.pop();
 
+// Append the array output with this final modified favorite foods array
 foodElement.innerHTML += `<br>${favoriteFoods.join(", ")}`;
+
 
 
 

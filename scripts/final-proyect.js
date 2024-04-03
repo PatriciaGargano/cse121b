@@ -1,13 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cryptoListElement = document.getElementById('cryptoList');
+    const showPricesButton = document.getElementById('showPricesButton');
 
-    // Función para obtener la cotización de criptomonedas
+    // Function to fetch cryptocurrency prices
     const getCryptoPrices = async () => {
         try {
+            // Fetch cryptocurrency prices from Coingecko API
             const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,litecoin&vs_currencies=usd');
             const data = await response.json();
 
-            // Mostrar la cotización de cada criptomoneda
+            // Clear the list before adding new prices
+            cryptoListElement.innerHTML = '';
+
+            // Display price for each cryptocurrency
             for (const crypto in data) {
                 const cryptoData = data[crypto];
                 const cryptoItem = document.createElement('div');
@@ -18,14 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 cryptoListElement.appendChild(cryptoItem);
             }
+
+            // Display the container after fetching data
+            cryptoListElement.style.display = 'block';
         } catch (error) {
-            console.error('Error al obtener la cotización de criptomonedas:', error);
+            console.error('Error fetching cryptocurrency prices:', error);
         }
     };
 
-    // Obtener y mostrar la cotización de criptomonedas al cargar la página
-    getCryptoPrices();
-
-    // Actualizar la cotización cada 30 segundos
-    setInterval(getCryptoPrices, 30000);
+    // Event listener for the button
+    showPricesButton.addEventListener('click', getCryptoPrices);
 });
+

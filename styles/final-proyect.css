@@ -9,7 +9,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-color:lightcoral;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -32,3 +32,30 @@ h1 {
 .crypto-price {
     font-size: 1.2em;
 }
+
+/* Crypto image style*/
+.crypto-img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Button style */
+#showPricesButton {
+    margin: 0 auto; 
+    display: block; 
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: violet; 
+    color: BLACK;
+    border: none;
+    border-radius: 5px;
+}
+
+
+#cryptoList {
+    display: none;
+}
+
